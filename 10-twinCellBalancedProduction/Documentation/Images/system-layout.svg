@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="900" viewBox="0 0 1900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Twin-Cell Balanced Production control-flow schematic</title>
+  <desc id="desc">Parallel lid and base lanes feed two machining centres. A pair coordinator holds matched requests and completions before both lanes merge onto a common outfeed, final sensor and remover.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#111c31"/>
+    </linearGradient>
+    <linearGradient id="lidFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123859"/>
+      <stop offset="1" stop-color="#0d263f"/>
+    </linearGradient>
+    <linearGradient id="baseFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#57301d"/>
+      <stop offset="1" stop-color="#332116"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#7dd3fc" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fb923c"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4ade80"/>
+    </marker>
+    <style>
+      .title { font: 700 46px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; letter-spacing: -1px; }
+      .subtitle { font: 400 20px Inter, Segoe UI, Arial, sans-serif; fill: #94a3b8; }
+      .badge { font: 700 14px Inter, Segoe UI, Arial, sans-serif; fill: #cbd5e1; letter-spacing: 1px; }
+      .laneTitle { font: 800 18px Inter, Segoe UI, Arial, sans-serif; letter-spacing: 2px; }
+      .nodeTitle { font: 700 16px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .nodeSub { font: 400 13px Inter, Segoe UI, Arial, sans-serif; fill: #94a3b8; }
+      .tiny { font: 700 11px Inter, Segoe UI, Arial, sans-serif; fill: #94a3b8; letter-spacing: 1px; }
+      .metric { font: 800 22px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+    </style>
+  </defs>
+
+  <rect width="1900" height="900" rx="28" fill="url(#bg)"/>
+  <rect width="1900" height="900" rx="28" fill="url(#grid)"/>
+
+  <text x="70" y="76" class="title">Twin-Cell Balanced Production</text>
+  <text x="72" y="112" class="subtitle">One held request · two reusable cell instances · one matched lid/base pair</text>
+
+  <g transform="translate(1365 46)">
+    <rect width="145" height="38" rx="19" fill="#17243a" stroke="#334155"/>
+    <text x="72.5" y="24" text-anchor="middle" class="badge">CODESYS ST</text>
+    <rect x="158" width="130" height="38" rx="19" fill="#17243a" stroke="#334155"/>
+    <text x="223" y="24" text-anchor="middle" class="badge">OPC DA</text>
+    <rect x="301" width="165" height="38" rx="19" fill="#17243a" stroke="#334155"/>
+    <text x="383.5" y="24" text-anchor="middle" class="badge">FACTORY I/O</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="665" y="130" width="380" height="88" rx="18" fill="#17243a" stroke="#64748b" stroke-width="2"/>
+    <circle cx="705" cy="174" r="17" fill="#4ade80" fill-opacity="0.16" stroke="#4ade80"/>
+    <path d="M697 174 l6 6 11-14" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="738" y="166" class="nodeTitle">FB_PairCoordinator</text>
+    <text x="738" y="190" class="nodeSub">Paired Request / Done</text>
+    <rect x="948" y="151" width="70" height="44" rx="11" fill="#0b1527" stroke="#334155"/>
+    <text x="983" y="169" text-anchor="middle" class="tiny">CLEAR</text>
+    <text x="983" y="188" text-anchor="middle" class="nodeTitle">2 s</text>
+  </g>
+
+  <rect x="60" y="250" width="1170" height="190" rx="24" fill="url(#lidFill)" stroke="#38bdf8" stroke-opacity="0.42" stroke-width="2"/>
+  <rect x="60" y="500" width="1170" height="190" rx="24" fill="url(#baseFill)" stroke="#fb923c" stroke-opacity="0.42" stroke-width="2"/>
+
+  <text x="95" y="286" class="laneTitle" fill="#7dd3fc">LID CELL · INSTANCE 1</text>
+  <text x="95" y="536" class="laneTitle" fill="#fdba74">BASE CELL · INSTANCE 2</text>
+
+  <path d="M760 218 C760 242 760 248 760 275" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="7 7"/>
+  <path d="M950 218 C950 330 950 480 850 525" fill="none" stroke="#fb923c" stroke-width="2" stroke-dasharray="7 7"/>
+
+  <g transform="translate(100 310)" filter="url(#shadow)">
+    <rect width="135" height="82" rx="15" fill="#0b1d30" stroke="#38bdf8"/>
+    <circle cx="29" cy="41" r="14" fill="#3b82f6"/>
+    <circle cx="47" cy="33" r="9" fill="#60a5fa"/>
+    <text x="92" y="34" text-anchor="middle" class="nodeTitle">Emitter</text>
+    <text x="92" y="57" text-anchor="middle" class="nodeSub">raw blank</text>
+  </g>
+  <g transform="translate(275 310)" filter="url(#shadow)">
+    <rect width="170" height="82" rx="15" fill="#10243a" stroke="#38bdf8"/>
+    <path d="M25 49 H145" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>
+    <g fill="#0f172a" stroke="#7dd3fc">
+      <circle cx="37" cy="49" r="7"/><circle cx="67" cy="49" r="7"/><circle cx="97" cy="49" r="7"/><circle cx="127" cy="49" r="7"/>
+    </g>
+    <text x="85" y="27" text-anchor="middle" class="nodeTitle">Raw conveyor</text>
+  </g>
+  <g transform="translate(485 316)" filter="url(#shadow)">
+    <rect width="90" height="70" rx="15" fill="#10243a" stroke="#38bdf8"/>
+    <circle cx="27" cy="35" r="9" fill="#38bdf8"/>
+    <path d="M36 35 H66" stroke="#f8fafc" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="45" y="61" text-anchor="middle" class="tiny">ENTRY PE</text>
+  </g>
+  <g transform="translate(615 294)" filter="url(#shadow)">
+    <rect width="255" height="114" rx="17" fill="#10243a" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="22" y="24" width="52" height="62" rx="8" fill="#07111f" stroke="#64748b"/>
+    <path d="M39 70 L39 48 L56 37 L64 48" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="56" cy="37" r="6" fill="#38bdf8"/>
+    <text x="164" y="48" text-anchor="middle" class="nodeTitle">Machining centre</text>
+    <text x="164" y="73" text-anchor="middle" class="nodeSub">product select = LID</text>
+    <text x="164" y="95" text-anchor="middle" class="tiny">FEED · PICKUP · PROCESS</text>
+  </g>
+  <g transform="translate(910 316)" filter="url(#shadow)">
+    <rect width="90" height="70" rx="15" fill="#10243a" stroke="#38bdf8"/>
+    <circle cx="27" cy="35" r="9" fill="#38bdf8"/>
+    <path d="M36 35 H66" stroke="#f8fafc" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="45" y="61" text-anchor="middle" class="tiny">EXIT PE</text>
+  </g>
+  <g transform="translate(1040 310)" filter="url(#shadow)">
+    <rect width="160" height="82" rx="15" fill="#10243a" stroke="#38bdf8"/>
+    <path d="M22 49 H138" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>
+    <g fill="#0f172a" stroke="#7dd3fc"><circle cx="39" cy="49" r="7"/><circle cx="70" cy="49" r="7"/><circle cx="101" cy="49" r="7"/><circle cx="132" cy="49" r="7"/></g>
+    <text x="80" y="27" text-anchor="middle" class="nodeTitle">Exit stages</text>
+  </g>
+
+  <path d="M235 351 H270" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M445 351 H480" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M575 351 H610" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M870 351 H905" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M1000 351 H1035" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+
+  <g transform="translate(100 560)" filter="url(#shadow)">
+    <rect width="135" height="82" rx="15" fill="#291b13" stroke="#fb923c"/>
+    <circle cx="29" cy="41" r="14" fill="#2563eb"/>
+    <circle cx="47" cy="33" r="9" fill="#60a5fa"/>
+    <text x="92" y="34" text-anchor="middle" class="nodeTitle">Emitter</text>
+    <text x="92" y="57" text-anchor="middle" class="nodeSub">raw blank</text>
+  </g>
+  <g transform="translate(275 560)" filter="url(#shadow)">
+    <rect width="170" height="82" rx="15" fill="#302016" stroke="#fb923c"/>
+    <path d="M25 49 H145" stroke="#fdba74" stroke-width="5" stroke-linecap="round"/>
+    <g fill="#0f172a" stroke="#fdba74"><circle cx="37" cy="49" r="7"/><circle cx="67" cy="49" r="7"/><circle cx="97" cy="49" r="7"/><circle cx="127" cy="49" r="7"/></g>
+    <text x="85" y="27" text-anchor="middle" class="nodeTitle">Raw conveyor</text>
+  </g>
+  <g transform="translate(485 566)" filter="url(#shadow)">
+    <rect width="90" height="70" rx="15" fill="#302016" stroke="#fb923c"/>
+    <circle cx="27" cy="35" r="9" fill="#fb923c"/>
+    <path d="M36 35 H66" stroke="#f8fafc" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="45" y="61" text-anchor="middle" class="tiny">ENTRY PE</text>
+  </g>
+  <g transform="translate(615 544)" filter="url(#shadow)">
+    <rect width="255" height="114" rx="17" fill="#302016" stroke="#fb923c" stroke-width="2"/>
+    <rect x="22" y="24" width="52" height="62" rx="8" fill="#07111f" stroke="#64748b"/>
+    <path d="M39 70 L39 48 L56 37 L64 48" fill="none" stroke="#fb923c" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="56" cy="37" r="6" fill="#fb923c"/>
+    <text x="164" y="48" text-anchor="middle" class="nodeTitle">Machining centre</text>
+    <text x="164" y="73" text-anchor="middle" class="nodeSub">product select = BASE</text>
+    <text x="164" y="95" text-anchor="middle" class="tiny">FEED · PICKUP · PROCESS</text>
+  </g>
+  <g transform="translate(910 566)" filter="url(#shadow)">
+    <rect width="90" height="70" rx="15" fill="#302016" stroke="#fb923c"/>
+    <circle cx="27" cy="35" r="9" fill="#fb923c"/>
+    <path d="M36 35 H66" stroke="#f8fafc" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="45" y="61" text-anchor="middle" class="tiny">EXIT PE</text>
+  </g>
+  <g transform="translate(1040 560)" filter="url(#shadow)">
+    <rect width="160" height="82" rx="15" fill="#302016" stroke="#fb923c"/>
+    <path d="M22 49 H138" stroke="#fdba74" stroke-width="5" stroke-linecap="round"/>
+    <g fill="#0f172a" stroke="#fdba74"><circle cx="39" cy="49" r="7"/><circle cx="70" cy="49" r="7"/><circle cx="101" cy="49" r="7"/><circle cx="132" cy="49" r="7"/></g>
+    <text x="80" y="27" text-anchor="middle" class="nodeTitle">Exit stages</text>
+  </g>
+
+  <path d="M235 601 H270" stroke="#fb923c" stroke-width="4" marker-end="url(#arrowOrange)"/>
+  <path d="M445 601 H480" stroke="#fb923c" stroke-width="4" marker-end="url(#arrowOrange)"/>
+  <path d="M575 601 H610" stroke="#fb923c" stroke-width="4" marker-end="url(#arrowOrange)"/>
+  <path d="M870 601 H905" stroke="#fb923c" stroke-width="4" marker-end="url(#arrowOrange)"/>
+  <path d="M1000 601 H1035" stroke="#fb923c" stroke-width="4" marker-end="url(#arrowOrange)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M1200 351 C1250 351 1258 402 1290 430" fill="none" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+    <path d="M1200 601 C1250 601 1258 532 1290 505" fill="none" stroke="#fb923c" stroke-width="5" marker-end="url(#arrowOrange)"/>
+    <rect x="1295" y="390" width="190" height="155" rx="25" fill="#123020" stroke="#4ade80" stroke-width="2"/>
+    <path d="M1340 438 H1440 M1340 470 H1440 M1340 502 H1440" stroke="#4ade80" stroke-opacity="0.65" stroke-width="5" stroke-linecap="round"/>
+    <text x="1390" y="422" text-anchor="middle" class="nodeTitle">Timed merge</text>
+    <text x="1390" y="532" text-anchor="middle" class="tiny">BOTH READY · 2 s</text>
+  </g>
+
+  <path d="M1485 468 H1520" stroke="#4ade80" stroke-width="5" marker-end="url(#arrowGreen)"/>
+  <g transform="translate(1525 421)" filter="url(#shadow)">
+    <rect width="170" height="94" rx="17" fill="#123020" stroke="#4ade80"/>
+    <path d="M22 57 H148" stroke="#86efac" stroke-width="6" stroke-linecap="round"/>
+    <g fill="#0f172a" stroke="#86efac"><circle cx="40" cy="57" r="8"/><circle cx="75" cy="57" r="8"/><circle cx="110" cy="57" r="8"/><circle cx="145" cy="57" r="8"/></g>
+    <text x="85" y="31" text-anchor="middle" class="nodeTitle">Shared outfeed</text>
+  </g>
+  <path d="M1695 468 H1720" stroke="#4ade80" stroke-width="5" marker-end="url(#arrowGreen)"/>
+  <g transform="translate(1725 410)" filter="url(#shadow)">
+    <rect width="125" height="116" rx="17" fill="#123020" stroke="#4ade80"/>
+    <circle cx="31" cy="43" r="10" fill="#4ade80"/>
+    <path d="M42 43 H90" stroke="#f8fafc" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="M53 70 H78 L86 91 H45 Z" fill="#07111f" stroke="#86efac" stroke-width="2"/>
+    <text x="62" y="108" text-anchor="middle" class="tiny">COUNT + REMOVE</text>
+  </g>
+
+  <g transform="translate(90 742)" filter="url(#shadow)">
+    <rect width="250" height="92" rx="18" fill="#17243a" stroke="#475569"/>
+    <circle cx="42" cy="46" r="20" fill="#ef4444"/>
+    <rect x="28" y="43" width="28" height="7" rx="3.5" fill="#fff"/>
+    <text x="78" y="38" class="nodeTitle">Operator layer</text>
+    <text x="78" y="62" class="nodeSub">Auto · Start · Stop · Reset</text>
+  </g>
+  <path d="M340 788 C490 788 505 205 665 177" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 8" marker-end="url(#arrowGreen)" opacity="0.75"/>
+
+  <g transform="translate(455 742)">
+    <rect width="300" height="92" rx="18" fill="#111d30" stroke="#334155"/>
+    <text x="24" y="34" class="tiny">HANDSHAKE</text>
+    <text x="24" y="64" class="metric">Ready · Request · Done</text>
+  </g>
+  <g transform="translate(785 742)">
+    <rect width="270" height="92" rx="18" fill="#111d30" stroke="#334155"/>
+    <text x="24" y="34" class="tiny">CELL DIAGNOSTICS</text>
+    <text x="24" y="64" class="metric">6 fault codes</text>
+  </g>
+  <g transform="translate(1085 742)">
+    <rect width="240" height="92" rx="18" fill="#111d30" stroke="#334155"/>
+    <text x="24" y="34" class="tiny">PLC TASK</text>
+    <text x="24" y="64" class="metric">20 ms cyclic</text>
+  </g>
+  <g transform="translate(1355 742)">
+    <rect width="445" height="92" rx="18" fill="#111d30" stroke="#334155"/>
+    <text x="24" y="34" class="tiny">CONTROLLED STOP</text>
+    <text x="24" y="62" class="metric">Finish pair → clear beam → 2 s</text>
+  </g>
+
+  <text x="1800" y="870" text-anchor="end" class="nodeSub">Control-flow schematic derived from the supplied CODESYS and Factory I/O exports</text>
+</svg>
