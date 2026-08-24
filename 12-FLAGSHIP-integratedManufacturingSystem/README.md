@@ -2,7 +2,7 @@
 
 An end-to-end industrial automation portfolio project combining a CODESYS Structured Text controller, a Factory I/O production plant, Kepware communications, and a responsive Ignition Perspective SCADA.
 
-![Project 12 Ignition Perspective overview](docs/assets/scada-overview.png)
+![Project 12 Ignition Perspective overview](Documentation/assets/scada-overview.png)
 
 ## What the system does
 
