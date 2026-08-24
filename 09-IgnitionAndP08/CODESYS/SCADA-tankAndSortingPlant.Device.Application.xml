@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.14.0</Version>
+    <SymbolConfigObject version="4.8.0.0" runtimeid="3.5.22.30" libversion="4.6.0.0" compiler="3.5.22.30" lmm="3.5.22.30" profile="CODESYS V3.5 SP22 Patch 3+" settings="SupportOPCUA, LayoutCalculator=OptimizedClientSideLayoutCalculator" />
+    <ProjectInfo name="SCADA-tankAndSortingPlant" devicename="Device" appname="Application" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeSimple name="T_UINT" size="2" swapsize="2" typeclass="UInt" iecname="UINT" />
+    <TypeSimple name="T_WORD" size="2" swapsize="2" typeclass="Word" iecname="WORD" />
+    <TypeArray name="T_ARRAY__0__3__OF_BOOL" size="4" nativesize="4" typeclass="Array" iecname="ARRAY [0..3] OF BOOL" basetype="T_BOOL">
+      <ArrayDim minrange="0" maxrange="3" />
+    </TypeArray>
+    <TypeUserDef name="T_E_PlantState" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="E_PlantState" basetype="T_INT">
+      <UserDefElement type="T_E_PlantState" iecname="CommittingInventory" enumvalue="60" />
+      <UserDefElement type="T_E_PlantState" iecname="DischargingBatch" enumvalue="40" />
+      <UserDefElement type="T_E_PlantState" iecname="Faulted" enumvalue="900" />
+      <UserDefElement type="T_E_PlantState" iecname="Idle" enumvalue="10" />
+      <UserDefElement type="T_E_PlantState" iecname="ReservingSlot" enumvalue="20" />
+      <UserDefElement type="T_E_PlantState" iecname="Stopped" enumvalue="0" />
+      <UserDefElement type="T_E_PlantState" iecname="StoringProduct" enumvalue="50" />
+      <UserDefElement type="T_E_PlantState" iecname="WaitingForBatch" enumvalue="30" />
+      <UserDefElement type="T_E_PlantState" iecname="WaitingForStorageComplete" enumvalue="70" />
+    </TypeUserDef>
+    <TypeUserDef name="T_E_StorageState" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="E_StorageState" basetype="T_INT">
+      <UserDefElement type="T_E_StorageState" iecname="Complete" enumvalue="110" />
+      <UserDefElement type="T_E_StorageState" iecname="ExtendingToLoad" enumvalue="30" />
+      <UserDefElement type="T_E_StorageState" iecname="ExtendingToRack" enumvalue="70" />
+      <UserDefElement type="T_E_StorageState" iecname="Faulted" enumvalue="900" />
+      <UserDefElement type="T_E_StorageState" iecname="Idle" enumvalue="10" />
+      <UserDefElement type="T_E_StorageState" iecname="LiftingProduct" enumvalue="40" />
+      <UserDefElement type="T_E_StorageState" iecname="LoweringProduct" enumvalue="80" />
+      <UserDefElement type="T_E_StorageState" iecname="MovingToRack" enumvalue="60" />
+      <UserDefElement type="T_E_StorageState" iecname="ReceivingProduct" enumvalue="20" />
+      <UserDefElement type="T_E_StorageState" iecname="RetractingAfterDeposit" enumvalue="90" />
+      <UserDefElement type="T_E_StorageState" iecname="RetractingWithProduct" enumvalue="50" />
+      <UserDefElement type="T_E_StorageState" iecname="ReturningHome" enumvalue="100" />
+      <UserDefElement type="T_E_StorageState" iecname="Stopped" enumvalue="0" />
+    </TypeUserDef>
+    <TypeUserDef name="T_E_TankState" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="E_TankState" basetype="T_INT">
+      <UserDefElement type="T_E_TankState" iecname="Stopped" enumvalue="0" />
+      <UserDefElement type="T_E_TankState" iecname="Idle" enumvalue="10" />
+      <UserDefElement type="T_E_TankState" iecname="Filling" enumvalue="20" />
+      <UserDefElement type="T_E_TankState" iecname="BatchReady" enumvalue="30" />
+      <UserDefElement type="T_E_TankState" iecname="Discharging" enumvalue="40" />
+      <UserDefElement type="T_E_TankState" iecname="Faulted" enumvalue="100" />
+    </TypeUserDef>
+  </TypeList>
+  <NodeList>
+    <Node name="Application">
+      <Node name="FIO">
+        <Node name="axRollerConveyorCmd" type="T_ARRAY__0__3__OF_BOOL" access="ReadWrite" />
+        <Node name="axStackGreenCmd" type="T_ARRAY__0__3__OF_BOOL" access="ReadWrite" />
+        <Node name="axStackRedCmd" type="T_ARRAY__0__3__OF_BOOL" access="ReadWrite" />
+        <Node name="axStackYellowCmd" type="T_ARRAY__0__3__OF_BOOL" access="ReadWrite" />
+        <Node name="ePlantState" type="T_E_PlantState" access="ReadWrite" />
+        <Node name="eStorageState" type="T_E_StorageState" access="ReadWrite" />
+        <Node name="eTankState" type="T_E_TankState" access="ReadWrite" />
+        <Node name="rDischargeValveCmdV" type="T_REAL" access="ReadWrite" />
+        <Node name="rFillValveCmdV" type="T_REAL" access="ReadWrite" />
+        <Node name="rTankLevelPct" type="T_REAL" access="ReadWrite" />
+        <Node name="rTankLevelV" type="T_REAL" access="ReadWrite" />
+        <Node name="uiFreeCount" type="T_UINT" access="ReadWrite" />
+        <Node name="uiOccupiedCount" type="T_UINT" access="ReadWrite" />
+        <Node name="uiReservedCount" type="T_UINT" access="ReadWrite" />
+        <Node name="uiUnknownCount" type="T_UINT" access="ReadWrite" />
+        <Node name="wReservedPosition" type="T_WORD" access="ReadWrite" />
+        <Node name="wTargetPositionCmd" type="T_WORD" access="ReadWrite" />
+        <Node name="xAutoModeSelected" type="T_BOOL" access="ReadWrite" />
+        <Node name="xAutoRun" type="T_BOOL" access="ReadWrite" />
+        <Node name="xContainerAtFill" type="T_BOOL" access="ReadWrite" />
+        <Node name="xContainerEmitterCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xCraneAtHome" type="T_BOOL" access="ReadWrite" />
+        <Node name="xDischargeTimeoutFault" type="T_BOOL" access="ReadWrite" />
+        <Node name="xDischargeValveCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xEmergencyActive" type="T_BOOL" access="ReadWrite" />
+        <Node name="xEmergencyStopHealthy" type="T_BOOL" access="ReadWrite" />
+        <Node name="xEntryConveyorCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFactoryIORunning" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFillTimeoutFault" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFillValveCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xForkAtLeft" type="T_BOOL" access="ReadWrite" />
+        <Node name="xForkAtMiddle" type="T_BOOL" access="ReadWrite" />
+        <Node name="xForkAtRight" type="T_BOOL" access="ReadWrite" />
+        <Node name="xForksLeftCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xForksRightCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xHighHighFault" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLiftCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLoadBeamClear" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLoadConveyorCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xMovingX" type="T_BOOL" access="ReadWrite" />
+        <Node name="xMovingZ" type="T_BOOL" access="ReadWrite" />
+        <Node name="xPlantEnable" type="T_BOOL" access="ReadWrite" />
+        <Node name="xPlantFaulted" type="T_BOOL" access="ReadWrite" />
+        <Node name="xPlantReset" type="T_BOOL" access="ReadWrite" />
+        <Node name="xPlantRunning" type="T_BOOL" access="ReadWrite" />
+        <Node name="xProductAtLoad" type="T_BOOL" access="ReadWrite" />
+        <Node name="xRackFaulted" type="T_BOOL" access="ReadWrite" />
+        <Node name="xRackFull" type="T_BOOL" access="ReadWrite" />
+        <Node name="xRecoveryRequired" type="T_BOOL" access="ReadWrite" />
+        <Node name="xResetLightCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xResetPB" type="T_BOOL" access="ReadWrite" />
+        <Node name="xResetRequired" type="T_BOOL" access="ReadWrite" />
+        <Node name="xSequenceFault" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStartLightCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStartPB" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStepTimeoutFault" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStopCircuitHealthy" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStopLightCmd" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStorageFaulted" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStorageReady" type="T_BOOL" access="ReadWrite" />
+        <Node name="xTankBatchReady" type="T_BOOL" access="ReadWrite" />
+        <Node name="xTankFaulted" type="T_BOOL" access="ReadWrite" />
+        <Node name="xTankLevelHighHigh" type="T_BOOL" access="ReadWrite" />
+        <Node name="xTransferPathClear" type="T_BOOL" access="ReadWrite" />
+        <Node name="xWaitingForContainer" type="T_BOOL" access="ReadWrite" />
+        <Node name="xWaitingForStorage" type="T_BOOL" access="ReadWrite" />
+      </Node>
+      <Node name="SCADA">
+        <Node name="xResetReq" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStartReq" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStopReq" type="T_BOOL" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>
